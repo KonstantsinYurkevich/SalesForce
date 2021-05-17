@@ -26,7 +26,7 @@ public abstract class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        Map<String,Object> prefs = new HashMap<>();
+        Map<String, Object> prefs = new HashMap<>();
         prefs.put("profile.default_content_setting_values.notifications", 2);
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();

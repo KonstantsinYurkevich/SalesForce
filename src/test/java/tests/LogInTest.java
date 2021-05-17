@@ -10,7 +10,7 @@ public class LogInTest extends BaseTest {
         boolean isOpened = logInPage
                 .open()
                 .IsPageOpened();
-        assertTrue(isOpened,"LogIn page doesn't open");
+        assertTrue(isOpened, "LogIn page doesn't open");
         isOpened = logInPage
                 .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();

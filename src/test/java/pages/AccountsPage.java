@@ -17,7 +17,7 @@ public class AccountsPage extends BasePage {
         return this;
     }
 
-    public NewAccountPage newAccountPage () {
+    public NewAccountPage newAccountPage() {
         driver.findElement(NEW_BUTTON).click();
         return new NewAccountPage(driver);
     }

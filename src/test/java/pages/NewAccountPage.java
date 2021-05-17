@@ -2,20 +2,20 @@ package pages;
 
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
-
-import java.util.List;
+import org.openqa.selenium.interactions.Actions;
 
 public class NewAccountPage extends BasePage {
     public static final By TITLE_NEW_ACCOUNT = By.xpath("//h2[text()='New Account']");
+
     public static final By WEBSITE = By.xpath("//*[contains(text(),'Website')]//ancestor::div/input");
-    public static final By ACCOUNT_NAME = By.xpath("//input[starts-with(@class,'default')]");
+    public static final By ACCOUNT_NAME = By.xpath("//span[text() = 'Account Name']//ancestor::label//following::input[1]");
     public static final By DROPDOWN_TYPE = By.xpath("//span[contains(text(),'Type')]//ancestor::span//following::a[1]");
     public static final By DESCRIPTION = By.xpath("//*[contains(text(),'Description')]//ancestor::div/textarea");
     //public static final By PARENT_ACCOUNT = By.cssSelector("[title='Search Accounts']");
-    public static final By PHONE = By.xpath("span[contains(text(),'Phone')]//ancestor::div/input");
+    public static final By PHONE = By.xpath("//span[contains(text(),'Phone')]//ancestor::div/input");
     public static final By DROPDOWN_INDUSTRY = By.xpath("//span[contains(text(),'Industry')]//ancestor::span//following::a[1]");
     public static final By EMPLOYEES = By.xpath("//*[contains(text(),'Employees')]//ancestor::div/input");
     public static final By BILLING_ADDRESS = By.xpath("//*[contains(text(),'Billing Address')]//ancestor::legend//following::button[1]");
@@ -31,12 +31,7 @@ public class NewAccountPage extends BasePage {
     public static final By SHIPPING_ZIP_POSTAL_CODE = By.xpath("//*[contains(text(),'Shipping Zip/Postal Code')]//ancestor::div/input");
     public static final By SHIPPING_COUNTRY = By.xpath("//*[contains(text(),'Shipping Country')]//ancestor::div/input");
 
-
-
-
-
-
-
+    public static final By BUTTON_SAVE = By.cssSelector("[title=Save]");
 
     public NewAccountPage(WebDriver driver) {
         super(driver);
@@ -44,16 +39,15 @@ public class NewAccountPage extends BasePage {
 
     @Override
     public boolean IsPageOpened() {
-         return isExist(TITLE_NEW_ACCOUNT);
+        return isExist(TITLE_NEW_ACCOUNT);
 
     }
+
     public AccountsPage createNewAccount() {
         driver.findElement(ACCOUNT_NAME).sendKeys("Lalalala");
 
-        WebElement dropdownType = driver.findElement(DROPDOWN_TYPE);
-        Select selectDropdownType = new Select(dropdownType);
-        List<WebElement> allOptionsDropdownType = selectDropdownType.getOptions();
-        allOptionsDropdownType.get(3).click();
+        driver.findElement(DROPDOWN_TYPE).click();
+        driver.findElement(By.xpath("//*[contains(text(),'Analyst')]")).click();
 
         driver.findElement(WEBSITE).sendKeys("www.lololo.com");
 
@@ -63,21 +57,31 @@ public class NewAccountPage extends BasePage {
 
         driver.findElement(PHONE).sendKeys("007");
 
-        WebElement dropdownIndustry = driver.findElement(DROPDOWN_INDUSTRY);
-        Select selectDropdownIndustry = new Select(dropdownIndustry);
-        List<WebElement> allOptionsDropdownIndustry = selectDropdownIndustry.getOptions();
-        allOptionsDropdownIndustry.get(3).click();
+        driver.findElement(DROPDOWN_INDUSTRY).click();
+        driver.findElement(By.xpath("//*[contains(text(),'Chemicals')]")).click();
+
 
         driver.findElement(EMPLOYEES).sendKeys("123");
 
 
         driver.findElement(BILLING_ADDRESS).click();
-        driver.findElement(By.xpath("[placeholder='Enter address']")).sendKeys("russia");
+        WebElement elementTExt = driver.findElement(By.cssSelector("[placeholder='Enter address']"));
+        Actions actions = new Actions(driver);
+        actions
+                .sendKeys(elementTExt, "Russia")
+                .build()
+                .perform();
         driver.findElement(By.xpath("//span[contains(text(),'Russia')]//ancestor::ul/li[1]/a")).click();
 
+
         driver.findElement(SHIPPING_ADDRESS).click();
-        driver.findElement(By.xpath("[placeholder='Enter address']")).sendKeys("china");
-        driver.findElement(By.xpath("//span[contains(text(),'Russia')]//ancestor::ul/li[1]/a")).click();
+        WebElement elementTEXT = driver.findElement(By.cssSelector("[placeholder='Enter address']"));
+        Actions action2 = new Actions(driver);
+        action2
+                .sendKeys(elementTEXT, "China")
+                .build()
+                .perform();
+        driver.findElement(By.xpath("//span[contains(text(),'China')]//ancestor::ul/li[1]/a")).click();
 
         driver.findElement(BILLING_STREET).sendKeys("qweqweqweq");
 
@@ -99,6 +103,21 @@ public class NewAccountPage extends BasePage {
 
         driver.findElement(SHIPPING_COUNTRY).sendKeys("ASdasdasdasdasd");
 
-        return new AccountsPage(driver) ;
+        driver.findElement(BUTTON_SAVE).click();
+
+
+        return new AccountsPage(driver);
+
+
+    }
+    public boolean AccountIsCreated() {
+        boolean isCreated;
+        try {
+            driver.findElement(By.cssSelector("[title=\"Lalalala\"]"));
+            isCreated = true;
+        } catch (NoSuchElementException exception){
+            isCreated = false;
+        }
+        return isCreated;
     }
 }

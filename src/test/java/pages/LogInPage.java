@@ -14,7 +14,7 @@ public class LogInPage extends BasePage {
 
     @Override
     public boolean IsPageOpened() {
-         return isExist(LOGIN_BUTTON);
+        return isExist(LOGIN_BUTTON);
     }
 
     public HomePage logIn(String logIn, String password) {

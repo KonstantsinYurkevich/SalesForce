@@ -11,16 +11,17 @@ public abstract class BasePage {
     WebDriverWait wait;
 
     public BasePage(WebDriver driver) {
-        this.driver=driver;
+        this.driver = driver;
         wait = new WebDriverWait(driver, 20);
     }
-    public abstract boolean IsPageOpened ();
+
+    public abstract boolean IsPageOpened();
 
     public boolean isExist(By locator) {
-        try{
+        try {
             driver.findElement(locator);
             return true;
-        } catch (NoSuchElementException exception){
+        } catch (NoSuchElementException exception) {
             System.out.println(exception.getMessage());
             return false;
         }

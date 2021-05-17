@@ -5,12 +5,12 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
 
-public class AccountCreateTest extends BaseTest{
+public class AccountCreateTest extends BaseTest {
     @Test
     public void createNewAccount() {
         boolean homePage = logInPage
                 .open()
-                .logIn(LOGIN,PASSWORD)
+                .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();
         assertTrue(homePage, "Home page not opened");
         boolean accountPageOpened = accountsPage
@@ -21,14 +21,9 @@ public class AccountCreateTest extends BaseTest{
                 .newAccountPage()
                 .IsPageOpened();
         assertTrue(newAccountPageIsOpened, "Page to create new account doesn't open");
-        boolean isNewAccountCreated = newAccountPage
-                .createNewAccount()
-                .IsPageOpened();
-        assertTrue(isNewAccountCreated,"New account doesn't created");
-
-
-
-
+        newAccountPage.createNewAccount();
+        driver.get("https://qa10tms.lightning.force.com/lightning/o/Account/list?filterName=Recent");
+        assertTrue(newAccountPage.AccountIsCreated(), "Account doesn't created");
 
 
     }
