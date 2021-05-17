@@ -1,4 +1,19 @@
 package pages;
 
-public class HomePage {
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class HomePage extends BasePage{
+
+    public static final By TITLE = By.xpath("//*[@title='Sales']");
+
+    public HomePage(WebDriver driver){
+        super(driver);
+    }
+
+    @Override
+    public boolean IsPageOpened() {
+        return isExist(TITLE);
+    }
+
 }

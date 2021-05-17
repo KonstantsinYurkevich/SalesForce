@@ -12,17 +12,20 @@ public class LogInPage extends BasePage {
         super(driver);
     }
 
-    public void logIn(String logIn, String password) {
+    @Override
+    public boolean IsPageOpened() {
+         return isExist(LOGIN_BUTTON);
+    }
+
+    public HomePage logIn(String logIn, String password) {
         driver.findElement(LOGIN_INPUT).sendKeys(logIn);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
+        return new HomePage(driver);
     }
 
     public LogInPage open() {
         driver.get(BASE_URL);
         return this;
-    }
-    public boolean isPageOpened() {
-
     }
 }

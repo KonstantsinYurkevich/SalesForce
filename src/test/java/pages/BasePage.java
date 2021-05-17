@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
-    public static  String BASE_URL = "https://qa10tms.lightning.force.com/";
+    public static final String BASE_URL = "https://qa10tms.lightning.force.com/";
     WebDriver driver;
     WebDriverWait wait;
 
@@ -14,12 +14,14 @@ public abstract class BasePage {
         this.driver=driver;
         wait = new WebDriverWait(driver, 20);
     }
-    public abstract boolean IsPageOpeneed ();
-    public  boolean isExist(By locator) {
+    public abstract boolean IsPageOpened ();
+
+    public boolean isExist(By locator) {
         try{
             driver.findElement(locator);
             return true;
         } catch (NoSuchElementException exception){
+            System.out.println(exception.getMessage());
             return false;
         }
     }
