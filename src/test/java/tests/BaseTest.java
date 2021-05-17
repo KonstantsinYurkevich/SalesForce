@@ -7,7 +7,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.AccountsPage;
-import pages.HomePage;
 import pages.LogInPage;
 import pages.NewAccountPage;
 

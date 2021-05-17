@@ -1,6 +1,8 @@
 package pages;
 
 
+import elements.Input;
+import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -120,4 +122,19 @@ public class NewAccountPage extends BasePage {
         }
         return isCreated;
     }
+    public void create(Account account) {
+        new Input(driver, "Account Name").writeIn(account.getAccountName());
+        new Input(driver, "Phone").writeIn(account.getPhone());
+        new Input(driver, "Website").writeIn(account.getWebsite());
+        new Input(driver, "Employees").writeIn(phone);
+        new Input(driver, "Billing City").writeIn(phone);
+        new Input(driver, "Shipping City").writeIn(phone);
+        new Input(driver, "Billing Country").writeIn(phone);
+        new Input(driver, "Shipping Country").writeIn(phone);
+        new Input(driver, "Billing Zip/Postal Code").writeIn(phone);
+        new Input(driver, "Shipping Zip/Postal Code").writeIn(phone);
+        new Input(driver, "Billing State/Province").writeIn(phone);
+        new Input(driver, "Shipping State/Province").writeIn(phone);
+    }
+
 }
