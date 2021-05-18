@@ -8,7 +8,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.AccountsPage;
 import pages.LogInPage;
-import pages.NewAccountPage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +17,7 @@ public abstract class BaseTest {
     WebDriver driver;
     LogInPage logInPage;
     AccountsPage accountsPage;
-    NewAccountPage newAccountPage;
+
 
     public static final String LOGIN = "kutcevolov-ahth@force.com";
     public static final String PASSWORD = "3345183Kostya";
@@ -36,7 +35,6 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         logInPage = new LogInPage(driver);
         accountsPage = new AccountsPage(driver);
-        newAccountPage = new NewAccountPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)
