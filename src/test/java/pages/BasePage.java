@@ -37,4 +37,92 @@ public abstract class BasePage {
                 "Input text is not correct"
         );
     }
+
+    public void validateURL(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-url";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateEmployees(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-number";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validatePhone(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-phone";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateBillingAddressStreet(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
+                "force-record-layout-item//lightning-formatted-address/a/div[1]";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateBillingAddressCityProvinceZipCode(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
+                "force-record-layout-item//lightning-formatted-address/a/div[2]";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateBillingAddressCountry(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
+                "force-record-layout-item//lightning-formatted-address/a/div[3]";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateShippingAddressStreet(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
+                "force-record-layout-item//lightning-formatted-address/a/div[1]";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateShippingAddressCityProvinceZipCode(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
+                "force-record-layout-item//lightning-formatted-address/a/div[2]";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
+    public void validateShippingAddressCountry(String label, String expected) {
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
+                "force-record-layout-item//lightning-formatted-address/a/div[3]";
+        assertEquals(
+                driver.findElement(By.xpath(String.format(locator, label))).getText(),
+                expected,
+                "Input text is not correct"
+        );
+    }
+
 }

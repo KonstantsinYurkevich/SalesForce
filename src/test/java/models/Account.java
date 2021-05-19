@@ -16,17 +16,20 @@ public class Account {
     String shipping_state_province;
     String shipping_zip_postal_code;
     String shipping_country;
-    String dropDownType;
-    String dropDownIndustry;
+    String dropdown_type;
+    String dropdown_industry;
 
 
-    public Account(String accountName, String phone, String website, String description, String employees,
-                   String billing_city, String billing_street, String billing_state_province,
-                   String billing_zip_postal_code, String billing_country, String shipping_street, String shipping_city,
-                   String shipping_state_province, String shipping_zip_postal_code, String shipping_country) {
+    public Account(String accountName, String phone, String dropdown_type, String website, String description,
+                   String dropdown_industry, String employees, String billing_city, String billing_street,
+                   String billing_state_province, String billing_zip_postal_code, String billing_country,
+                   String shipping_street, String shipping_city, String shipping_state_province,
+                   String shipping_zip_postal_code, String shipping_country) {
 
         this.accountName = accountName;
         this.phone = phone;
+        this.dropdown_type = dropdown_type;
+        this.dropdown_industry = dropdown_industry;
         this.website = website;
         this.description = description;
         this.employees = employees;
@@ -44,6 +47,30 @@ public class Account {
 
     public String getBilling_Street() {
         return billing_street;
+    }
+
+    public String getBilling_street() {
+        return billing_street;
+    }
+
+    public void setBilling_street(String billing_street) {
+        this.billing_street = billing_street;
+    }
+
+    public String getDropdown_type() {
+        return dropdown_type;
+    }
+
+    public void setDropdown_type(String dropdown_type) {
+        this.dropdown_type = dropdown_type;
+    }
+
+    public String getDropdown_industry() {
+        return dropdown_industry;
+    }
+
+    public void setDropdown_industry(String dropdown_industry) {
+        this.dropdown_industry = dropdown_industry;
     }
 
     public void setBilling_Street(String billing_street) {

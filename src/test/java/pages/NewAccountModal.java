@@ -2,7 +2,6 @@ package pages;
 
 
 import elements.DropDown;
-import elements.Dropdown;
 import elements.Input;
 import models.Account;
 import org.openqa.selenium.By;
@@ -26,11 +25,11 @@ public class NewAccountModal extends BasePage {
 
     public AccountDetailsPage create(Account account) {
         new Input(driver, "Account Name").writeIn(account.getAccountName());
-        new DropDown(driver,"Type").select("Press");
+        new DropDown(driver, "Type").select(account.getDropdown_type());
         new Input(driver, "Website").writeIn(account.getWebsite());
         new Input(driver, "Phone").writeIn(account.getPhone());
         new Input(driver, "Description").writeInArea(account.getDescription());
-        new DropDown(driver,"Industry").select("Media");
+        new DropDown(driver, "Industry").select(account.getDropdown_industry());
         new Input(driver, "Employees").writeIn(account.getEmployees());
         new Input(driver, "Billing Street").writeInArea(account.getBilling_Street());
         new Input(driver, "Billing City").writeIn(account.getBilling_city());

@@ -12,19 +12,23 @@ public class AccountCreateTest extends BaseTest {
         boolean isOpened = logInPage
                 .open()
                 .IsPageOpened();
-        assertTrue(isOpened, "Страница логина не открылась");
+        assertTrue(isOpened, "LogIn page doesn't open");
         isOpened = logInPage
-                .logIn("dmitryrak11-fcsk@force.com", "password01")
+                .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();
-        assertTrue(isOpened, "Home Page не открылась");
-        Account account = new Account("Test", "+375293350019", "tut.by","Lasdoasdkasodkas",
-                );
+        assertTrue(isOpened, "Home page doesn't open");
+        Account account = new Account("Test", "+88005553535", "Press", "Allah-Akbar.cc",
+                "Here is description", "Media", "12", "Moscow", "Arbat",
+                "Vnukovo", "1233212", "Russia", "Zapadnaya",
+                "Minsk", "Zapad", "123211", "Belarus");
+
         accountsPage
                 .open()
                 .clickNewButton()
-                .create(Account)
+                .create(account)
                 .openDetailsTab()
-                .validateAccount();
+                .validateAccount(account);
+
 
     }
 }
