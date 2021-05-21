@@ -1,11 +1,13 @@
 package tests;
 
 import org.testng.annotations.Test;
+import tests.base.BaseTest;
+import tests.base.Retry;
 
 import static org.testng.Assert.assertTrue;
 
 public class LogInTest extends BaseTest {
-    @Test
+    @Test (description = "LogIn test", retryAnalyzer = Retry.class)
     public void logIn() {
         boolean isOpened = logInPage
                 .open()

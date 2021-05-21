@@ -30,7 +30,8 @@ public abstract class BasePage {
     }
 
     public void validateInput(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-text";
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//" +
+                "lightning-formatted-text";
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
                 expected,
@@ -39,7 +40,8 @@ public abstract class BasePage {
     }
 
     public void validateURL(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-url";
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//" +
+                "lightning-formatted-url";
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
                 expected,
@@ -48,7 +50,8 @@ public abstract class BasePage {
     }
 
     public void validateEmployees(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-number";
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//" +
+                "lightning-formatted-number";
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
                 expected,
@@ -57,7 +60,8 @@ public abstract class BasePage {
     }
 
     public void validatePhone(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//lightning-formatted-phone";
+        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//" +
+                "lightning-formatted-phone";
         assertEquals(
                 driver.findElement(By.xpath(String.format(locator, label))).getText(),
                 expected,
