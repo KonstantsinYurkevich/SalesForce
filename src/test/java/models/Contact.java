@@ -77,14 +77,14 @@ public class Contact {
         this.suffix = suffix;
     }
 
-   /* public String getAccountName() {
-        return accountName;
-    }
+    /* public String getAccountName() {
+         return accountName;
+     }
 
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
-    }
-*/
+     public void setAccountName(String accountName) {
+         this.accountName = accountName;
+     }
+ */
     public String getTitle() {
         return title;
     }

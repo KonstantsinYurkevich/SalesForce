@@ -19,7 +19,8 @@ public class ContactCreateTest extends BaseTest {
                 .IsPageOpened();
         assertTrue(isOpened, "Home page doesn't open");
         Contact contact = new Contact("Asas", "DSA", "ASDASD", "ASDDDAA", "ASDAS"
-                , "qweqw@assadas.tom", "123321312", "123321123", "asdasd", "123321", "qweqwe", "qweqweqw"
+                , "qweqw@assadas.tom", "123321312", "123321123", "asdasd", "123321",
+                "qweqwe", "qweqweqw"
                 , "qweqweqwe", "qweqwe", "qweqwe", "Mr.");
         contactsPage
                 .open()

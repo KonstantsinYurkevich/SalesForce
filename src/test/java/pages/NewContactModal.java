@@ -26,7 +26,7 @@ public class NewContactModal extends BasePage {
         new Input(driver, "Middle Name", "Contact").writeIn(contact.getFirst_name());
         new Input(driver, "Last Name", "Contact").writeIn(contact.getFirst_name());
         new Input(driver, "Suffix", "Contact").writeIn(contact.getSuffix());
-       // new Input(driver, "AccountName", "Contact").writeIn("Test");
+        // new Input(driver, "AccountName", "Contact").writeIn("Test");
         new Input(driver, "Title", "Contact").writeIn(contact.getTitle());
         new Input(driver, "Email", "Contact").writeIn(contact.getEmail());
         new Input(driver, "Phone", "Contact").writeIn(contact.getPhone());

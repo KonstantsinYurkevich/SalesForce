@@ -36,9 +36,9 @@ public class NewContactDetailsPage extends BasePage {
     }
 
     public void validateContact(Contact contact) {
-        validateName("Name",   contact.getFirst_name() +
+        validateName("Name", contact.getFirst_name() +
                 " " + contact.getLast_name() + " " + contact.getMiddle_name() + " " + contact.getSuffix());
-       // validateAccountName("Account Name", contact.getAccountName());
+        // validateAccountName("Account Name", contact.getAccountName());
         validateInput("Title", contact.getTitle());
         validateEmail("Email", contact.getEmail());
         validatePhone("Phone", contact.getPhone());

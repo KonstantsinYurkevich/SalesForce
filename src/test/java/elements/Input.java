@@ -11,12 +11,15 @@ public class Input {
 
     public Input(WebDriver driver, String label, String page) {
         if ("Account".equals(page)) {
-            input = "//*[contains(@class,'modal-body')]//span[text()='%s']//ancestor::div[contains(@class, 'uiInput')]//input";
+            input = "//*[contains(@class,'modal-body')]//span[text()='%s']//ancestor::div[contains(@class, 'uiInput')]" +
+                    "//input";
             inputArea = "//*[contains(@class,'modal-body')]//span[text()='%s']//ancestor::div[contains(@class," +
                     " 'uiInput')]//textarea";
         } else {
-            input = "//*[contains(@class,'modal-body')]//*[text()='%s']//ancestor::lightning-input[contains(@class,'slds-form-element')]//input";
-            inputArea = "//*[contains(@class,'modal-body')]//*[text()='Mailing Street']//ancestor::div[contains(@class,'slds-form-element')]//textarea";
+            input = "//*[contains(@class,'modal-body')]//*[text()='%s']//ancestor::lightning-input[contains(@class,'" +
+                    "slds-form-element')]//input";
+            inputArea = "//*[contains(@class,'modal-body')]//*[text()='Mailing Street']//ancestor::div[contains(@class," +
+                    "'slds-form-element')]//textarea";
         }
         this.driver = driver;
         this.label = label;
