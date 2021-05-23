@@ -20,30 +20,29 @@ public class NewAccountModal extends BasePage {
     @Override
     public boolean IsPageOpened() {
         return isExist(MODAL_TITLE);
-
     }
 
-    public AccountDetailsPage create(Account account) {
-        new Input(driver, "Account Name").writeIn(account.getAccountName());
-        new DropDown(driver, "Type").select(account.getDropdown_type());
-        new Input(driver, "Website").writeIn(account.getWebsite());
-        new Input(driver, "Phone").writeIn(account.getPhone());
-        new Input(driver, "Description").writeInArea(account.getDescription());
-        new DropDown(driver, "Industry").select(account.getDropdown_industry());
-        new Input(driver, "Employees").writeIn(account.getEmployees());
-        new Input(driver, "Billing Street").writeInArea(account.getBilling_Street());
-        new Input(driver, "Billing City").writeIn(account.getBilling_city());
-        new Input(driver, "Billing State/Province").writeIn(account.getBilling_state_province());
-        new Input(driver, "Billing Zip/Postal Code").writeIn(account.getBilling_zip_postal_code());
-        new Input(driver, "Billing Country").writeIn(account.getBilling_country());
-        new Input(driver, "Shipping Street").writeInArea(account.getShipping_street());
-        new Input(driver, "Shipping City").writeIn(account.getShipping_city());
-        new Input(driver, "Shipping State/Province").writeIn(account.getShipping_state_province());
-        new Input(driver, "Shipping Zip/Postal Code").writeIn(account.getShipping_zip_postal_code());
-        new Input(driver, "Shipping Country").writeIn(account.getShipping_country());
+    public NewAccountDetailsPage create(Account account) {
+        new Input(driver, "Account Name", "Account").writeIn(account.getAccountName());
+        new DropDown(driver, "Type", "Account").select(account.getDropdown_type());
+        new Input(driver, "Website", "Account").writeIn(account.getWebsite());
+        new Input(driver, "Phone", "Account").writeIn(account.getPhone());
+        new Input(driver, "Description", "Account").writeInArea(account.getDescription());
+        new DropDown(driver, "Industry", "Account").select(account.getDropdown_industry());
+        new Input(driver, "Employees", "Account").writeIn(account.getEmployees());
+        new Input(driver, "Billing Street", "Account").writeInArea(account.getBilling_Street());
+        new Input(driver, "Billing City", "Account").writeIn(account.getBilling_city());
+        new Input(driver, "Billing State/Province", "Account").writeIn(account.getBilling_state_province());
+        new Input(driver, "Billing Zip/Postal Code", "Account").writeIn(account.getBilling_zip_postal_code());
+        new Input(driver, "Billing Country", "Account").writeIn(account.getBilling_country());
+        new Input(driver, "Shipping Street", "Account").writeInArea(account.getShipping_street());
+        new Input(driver, "Shipping City", "Account").writeIn(account.getShipping_city());
+        new Input(driver, "Shipping State/Province", "Account").writeIn(account.getShipping_state_province());
+        new Input(driver, "Shipping Zip/Postal Code", "Account").writeIn(account.getShipping_zip_postal_code());
+        new Input(driver, "Shipping Country", "Account").writeIn(account.getShipping_country());
         save();
 
-        return new AccountDetailsPage(driver);
+        return new NewAccountDetailsPage(driver);
 
 
     }

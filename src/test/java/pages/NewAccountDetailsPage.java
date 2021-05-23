@@ -2,24 +2,37 @@ package pages;
 
 import models.Account;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
-public class AccountDetailsPage extends BasePage {
+public class NewAccountDetailsPage extends BasePage {
     public static final By DETAILS_TAB = By.xpath("//div[contains(@class,'active')]//*[@id='detailTab__item']");
+    public static final By ACTIVE_DETAILS_TAB = By.xpath("//a[contains(text(),'Details')]//ancestor::li[contains" +
+            "(@class,'slds-is-active')]");
 
-    public AccountDetailsPage(WebDriver driver) {
+    public NewAccountDetailsPage(WebDriver driver) {
         super(driver);
     }
 
     @Override
     public boolean IsPageOpened() {
-        return false;
+        return true;
     }
 
 
-    public AccountDetailsPage openDetailsTab() {
+    public NewAccountDetailsPage openDetailsTab() {
         driver.findElement(DETAILS_TAB).click();
         return this;
+    }
+
+    public boolean isDetailsTabOpened() {
+        try {
+            driver.findElement(ACTIVE_DETAILS_TAB);
+            return true;
+        } catch (NoSuchElementException exception) {
+            System.out.println(exception.getMessage());
+            return false;
+        }
     }
 
     public void validateAccount(Account account) {

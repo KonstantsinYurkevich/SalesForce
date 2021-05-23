@@ -11,6 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import pages.AccountsPage;
+import pages.ContactsPage;
 import pages.LogInPage;
 
 import java.util.HashMap;
@@ -21,6 +22,7 @@ public abstract class BaseTest {
     WebDriver driver;
     protected LogInPage logInPage;
     protected AccountsPage accountsPage;
+    protected ContactsPage contactsPage;
 
 
     public static final String LOGIN = "kutcevolov-ahth@force.com";
@@ -41,7 +43,7 @@ public abstract class BaseTest {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--no-sandbox");
-            options.addPreference("disable_beforeunload",false);
+            options.addPreference("disable_beforeunload", false);
             driver = new FirefoxDriver(options);
             driver.manage().window().maximize();
         }
@@ -49,6 +51,7 @@ public abstract class BaseTest {
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         logInPage = new LogInPage(driver);
         accountsPage = new AccountsPage(driver);
+        contactsPage = new ContactsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

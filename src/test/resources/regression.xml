@@ -9,6 +9,7 @@
     <test name="test 2">
         <classes>
             <class name="tests.AccountCreateTest" />
+            <class name="tests.ContactCreateTest" />
         </classes>
     </test> <!-- Test -->
 </suite>
