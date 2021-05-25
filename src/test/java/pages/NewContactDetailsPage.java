@@ -36,18 +36,20 @@ public class NewContactDetailsPage extends BasePage {
     }
 
     public void validateContact(Contact contact) {
-        validateName("Name", contact.getFirst_name() +
-                " " + contact.getLast_name() + " " + contact.getMiddle_name() + " " + contact.getSuffix());
-        // validateAccountName("Account Name", contact.getAccountName());
+        validateName("Name", contact.getDropdown_salutation() + " " + contact.getFirst_name() +
+                " " + contact.getMiddle_name() + " " + contact.getLast_name() + " " + contact.getSuffix());
+        validateAccountName("Account Name", contact.getAccountName());
         validateInput("Title", contact.getTitle());
         validateEmail("Email", contact.getEmail());
         validatePhone("Phone", contact.getPhone());
         validatePhone("Mobile", contact.getMobile());
         validateInput("Department", contact.getDepartment());
         validatePhone("Fax", contact.getFax());
-        validateAddress("Mailing Address", contact.getMailing_street() +
-                contact.getMailing_city() + ", " + contact.getMailing_state_province() + " " +
-                contact.getMailing_zip_postal_code() + contact.getMailing_country());
+        validateMailingAddressCityProvinceZipCode("Mailing Address", contact.getMailing_city() + ", " +
+                contact.getMailing_state_province() + " " +
+                contact.getMailing_zip_postal_code());
+        validateMailingAddressCountry("Mailing Address", contact.getMailing_country());
+        validateMailingAddressStreet("Mailing Address", contact.getMailing_street());
 
     }
 }

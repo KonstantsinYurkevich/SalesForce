@@ -5,7 +5,7 @@ public class Contact {
     String middle_name;
     String last_name;
     String suffix;
-    //String accountName;
+    String accountName;
     String title;
     String email;
     String phone;
@@ -20,7 +20,7 @@ public class Contact {
     String dropdown_salutation;
 
 
-    public Contact(String first_name, String middle_name, String last_name, String suffix/*String accountName*/,
+    public Contact(String first_name, String middle_name, String last_name, String suffix, String accountName,
                    String title, String email, String phone, String mobile,
                    String department, String fax, String mailing_street,
                    String mailing_city, String mailing_state_province, String mailing_zip_postal_code,
@@ -30,7 +30,7 @@ public class Contact {
         this.middle_name = middle_name;
         this.last_name = last_name;
         this.suffix = suffix;
-        //this.accountName = accountName;
+        this.accountName = accountName;
         this.title = title;
         this.email = email;
         this.phone = phone;
@@ -77,14 +77,14 @@ public class Contact {
         this.suffix = suffix;
     }
 
-    /* public String getAccountName() {
-         return accountName;
-     }
+    public String getAccountName() {
+        return accountName;
+    }
 
-     public void setAccountName(String accountName) {
-         this.accountName = accountName;
-     }
- */
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
     public String getTitle() {
         return title;
     }

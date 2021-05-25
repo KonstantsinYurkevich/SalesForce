@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Regression Test suite" parallel="tests" thread-count="4">
+<suite name="Smoke Test suite" parallel="tests">
     <listeners>
         <listener class-name="tests.base.AnnotationTransformer"/>
     </listeners>
     <test name="test 1">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LogInTest" />
-        </classes>
-    </test> <!-- Test -->
-    <test name="test 2">
-        <classes>
-            <class name="tests.AccountCreateTest" />
-            <class name="tests.ContactCreateTest" />
         </classes>
     </test> <!-- Test -->
 </suite>
