@@ -2,12 +2,14 @@ package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Search {
     WebDriver driver;
     String label;
     String locator;
     String optionLocator;
+    WebDriverWait wait;
 
     public Search(WebDriver driver, String label, String page) {
         if (page.equals("Account")) {
@@ -24,6 +26,7 @@ public class Search {
 
     public void option(String option) {
         driver.findElement(By.xpath(String.format(locator, label))).click();
+        wait = new WebDriverWait(driver, 2);
         driver.findElement(By.xpath(String.format(optionLocator, option))).click();
     }
 }

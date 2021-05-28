@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import pages.AccountsPage;
 import pages.ContactsPage;
+import pages.LeadsPage;
 import pages.LogInPage;
 
 import java.util.HashMap;
@@ -23,10 +24,11 @@ public abstract class BaseTest {
     protected LogInPage logInPage;
     protected AccountsPage accountsPage;
     protected ContactsPage contactsPage;
+    protected LeadsPage leadsPage;
 
 
     public static final String LOGIN = "kutcevolov-ahth@force.com";
-    public static final String PASSWORD = "3345183Kostya";
+    public static final String PASSWORD = "GV8RQikzwZDKnH3";
 
     @BeforeMethod
     public void setUp(@Optional("chrome") String browser, ITestContext testContext) {
@@ -38,11 +40,13 @@ public abstract class BaseTest {
             WebDriverManager.chromedriver().setup();
             options.addArguments("--no-sandbox");
             options.addArguments("--start-maximized");
+            options.addArguments("--headless");
             driver = new ChromeDriver(options);
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--no-sandbox");
+            options.addArguments("--headless");
             options.addPreference("disable_beforeunload", false);
             driver = new FirefoxDriver(options);
             driver.manage().window().maximize();
@@ -52,6 +56,7 @@ public abstract class BaseTest {
         logInPage = new LogInPage(driver);
         accountsPage = new AccountsPage(driver);
         contactsPage = new ContactsPage(driver);
+        leadsPage = new LeadsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

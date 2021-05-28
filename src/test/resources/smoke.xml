@@ -8,6 +8,9 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LogInTest" />
+            <class name="tests.AccountCreateTest" />
+            <class name="tests.ContactCreateTest" />
+            <class name="tests.LeadCreateTest" />
         </classes>
     </test> <!-- Test -->
 </suite>

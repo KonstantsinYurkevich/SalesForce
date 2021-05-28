@@ -1,9 +1,11 @@
 package pages;
 
+import io.qameta.allure.Step;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NewContactDetailsPage extends BasePage {
     public static final By DETAILS_TAB = By.xpath("//div[contains(@class,'active')]//*[@id='detailTab__item']");
@@ -19,8 +21,9 @@ public class NewContactDetailsPage extends BasePage {
         return true;
     }
 
-
+    @Step("Open details tab on contact page")
     public NewContactDetailsPage openDetailsTab() {
+        wait = new WebDriverWait(driver, 20);
         driver.findElement(DETAILS_TAB).click();
         return this;
     }
@@ -35,6 +38,7 @@ public class NewContactDetailsPage extends BasePage {
         }
     }
 
+    @Step("Validating contact from data and contact from site")
     public void validateContact(Contact contact) {
         validateName("Name", contact.getDropdown_salutation() + " " + contact.getFirst_name() +
                 " " + contact.getMiddle_name() + " " + contact.getLast_name() + " " + contact.getSuffix());
@@ -45,11 +49,11 @@ public class NewContactDetailsPage extends BasePage {
         validatePhone("Mobile", contact.getMobile());
         validateInput("Department", contact.getDepartment());
         validatePhone("Fax", contact.getFax());
-        validateMailingAddressCityProvinceZipCode("Mailing Address", contact.getMailing_city() + ", " +
+        validateCityProvinceZipCode("Mailing Address", contact.getMailing_city() + ", " +
                 contact.getMailing_state_province() + " " +
                 contact.getMailing_zip_postal_code());
-        validateMailingAddressCountry("Mailing Address", contact.getMailing_country());
-        validateMailingAddressStreet("Mailing Address", contact.getMailing_street());
+        validateCountry("Mailing Address", contact.getMailing_country());
+        validateStreet("Mailing Address", contact.getMailing_street());
 
     }
 }

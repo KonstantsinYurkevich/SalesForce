@@ -3,6 +3,7 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import elements.Search;
+import io.qameta.allure.Step;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class NewContactModal extends BasePage {
 
     }
 
+    @Step("Fill in form of new contact according test data ")
     public NewContactDetailsPage create(Contact contact) {
         new Input(driver, "First Name", "Contact").writeIn(contact.getFirst_name());
         new Input(driver, "Middle Name", "Contact").writeIn(contact.getMiddle_name());

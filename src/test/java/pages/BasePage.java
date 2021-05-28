@@ -69,66 +69,6 @@ public abstract class BasePage {
         );
     }
 
-    public void validateBillingAddressStreet(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
-                "force-record-layout-item//lightning-formatted-address/a/div[1]";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected,
-                "Input text is not correct"
-        );
-    }
-
-    public void validateBillingAddressCityProvinceZipCode(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
-                "force-record-layout-item//lightning-formatted-address/a/div[2]";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected,
-                "Input text is not correct"
-        );
-    }
-
-    public void validateBillingAddressCountry(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
-                "force-record-layout-item//lightning-formatted-address/a/div[3]";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected,
-                "Input text is not correct"
-        );
-    }
-
-    public void validateShippingAddressStreet(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
-                "force-record-layout-item//lightning-formatted-address/a/div[1]";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected,
-                "Input text is not correct"
-        );
-    }
-
-    public void validateShippingAddressCityProvinceZipCode(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
-                "force-record-layout-item//lightning-formatted-address/a/div[2]";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected,
-                "Input text is not correct"
-        );
-    }
-
-    public void validateShippingAddressCountry(String label, String expected) {
-        String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::" +
-                "force-record-layout-item//lightning-formatted-address/a/div[3]";
-        assertEquals(
-                driver.findElement(By.xpath(String.format(locator, label))).getText(),
-                expected,
-                "Input text is not correct"
-        );
-    }
-
     public void validateEmail(String label, String expected) {
         String locator = "//div[contains(@class,'active')]//span[text()='%s']/ancestor::force-record-layout-item//a";
         assertEquals(
@@ -158,7 +98,7 @@ public abstract class BasePage {
         );
     }
 
-    public void validateMailingAddressCityProvinceZipCode(String label, String expected) {
+    public void validateCityProvinceZipCode(String label, String expected) {
         String locator = "//div[contains(@class,'active')]//span[text()='%s']//ancestor::force-record-layout-item" +
                 "//lightning-formatted-address/a/div[2]";
         assertEquals(
@@ -168,7 +108,7 @@ public abstract class BasePage {
         );
     }
 
-    public void validateMailingAddressCountry(String label, String expected) {
+    public void validateCountry(String label, String expected) {
         String locator = "//div[contains(@class,'active')]//span[text()='%s']//ancestor::force-record-layout-item" +
                 "//lightning-formatted-address/a/div[3]";
         assertEquals(
@@ -178,7 +118,7 @@ public abstract class BasePage {
         );
     }
 
-    public void validateMailingAddressStreet(String label, String expected) {
+    public void validateStreet(String label, String expected) {
         String locator = "//div[contains(@class,'active')]//span[text()='%s']//ancestor::force-record-layout-item" +
                 "//lightning-formatted-address/a/div[1]";
         assertEquals(

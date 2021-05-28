@@ -18,12 +18,11 @@ public class Input {
         } else {
             input = "//*[contains(@class,'modal-body')]//*[text()='%s']//ancestor::lightning-input[contains(@class,'" +
                     "slds-form-element')]//input";
-            inputArea = "//*[contains(@class,'modal-body')]//*[text()='Mailing Street']//ancestor::div[contains(@class," +
+            inputArea = "//*[contains(@class,'modal-body')]//*[text()='%s']//ancestor::div[contains(@class," +
                     "'slds-form-element')]//textarea";
         }
         this.driver = driver;
         this.label = label;
-
     }
 
     public void writeIn(String text) {

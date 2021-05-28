@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,6 +18,7 @@ public class LogInPage extends BasePage {
         return isExist(LOGIN_BUTTON);
     }
 
+    @Step("LogIn using data")
     public HomePage logIn(String logIn, String password) {
         driver.findElement(LOGIN_INPUT).sendKeys(logIn);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -24,6 +26,7 @@ public class LogInPage extends BasePage {
         return new HomePage(driver);
     }
 
+    @Step("Open login page")
     public LogInPage open() {
         driver.get(BASE_URL);
         return this;
