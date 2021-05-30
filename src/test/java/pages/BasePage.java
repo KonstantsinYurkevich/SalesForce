@@ -4,9 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Listeners;
+import tests.base.TestListener;
 
 import static org.testng.Assert.assertEquals;
 
+@Listeners(TestListener.class)
 public abstract class BasePage {
     public static final String BASE_URL = "https://qa10tms.lightning.force.com/";
     WebDriver driver;
