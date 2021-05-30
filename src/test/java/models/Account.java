@@ -49,6 +49,10 @@ public class Account {
         return billing_street;
     }
 
+    public void setBilling_Street(String billing_street) {
+        this.billing_street = billing_street;
+    }
+
     public String getBilling_street() {
         return billing_street;
     }
@@ -73,10 +77,6 @@ public class Account {
         this.dropdown_industry = dropdown_industry;
     }
 
-    public void setBilling_Street(String billing_street) {
-        this.billing_street = billing_street;
-    }
-
     public String getShipping_street() {
         return shipping_street;
     }
@@ -89,16 +89,16 @@ public class Account {
         return accountName;
     }
 
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setAccountName(String accountName) {
-        this.accountName = accountName;
     }
 
     public String getPhone() {

@@ -19,15 +19,13 @@ import java.util.concurrent.TimeUnit;
 
 @Listeners(TestListener.class)
 public abstract class BaseTest {
-    WebDriver driver;
+    public static final String LOGIN = "kutcevolov-ahth@force.com";
+    public static final String PASSWORD = "GV8RQikzwZDKnH3";
     protected LogInPage logInPage;
     protected AccountsPage accountsPage;
     protected ContactsPage contactsPage;
     protected LeadsPage leadsPage;
-
-
-    public static final String LOGIN = "kutcevolov-ahth@force.com";
-    public static final String PASSWORD = "GV8RQikzwZDKnH3";
+    WebDriver driver;
 
     @Parameters({"browser"})
     @BeforeMethod

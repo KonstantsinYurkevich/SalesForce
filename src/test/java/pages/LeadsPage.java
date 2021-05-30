@@ -5,9 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LeadsPage extends BasePage {
-    By icon = By.cssSelector("img[title=Lead]");
     public static final By NEW_BUTTON = By.cssSelector("[title=New]");
     public static final String Leads = "lightning/o/Lead/list?filterName=Recent";
+    By icon = By.cssSelector("img[title=Lead]");
 
     public LeadsPage(WebDriver driver) {
         super(driver);
