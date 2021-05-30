@@ -7,14 +7,10 @@ Simple Test Automation Framework for SalesForce.com
 
 ---------------------
 
-### **Log In**
-- Field UserName
-- Field Password
-### **Accounts Page**
+### **Testing:**
+- LogIn
 - Create account
-### **Contacts Page**
 - Create contact
-### **Lead Page**
 - Create lead
 
 Build requirements:
