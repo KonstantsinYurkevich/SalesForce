@@ -28,6 +28,9 @@ public class Input {
     public void writeIn(String text) {
         driver.findElement(By.xpath(String.format(input, label))).sendKeys(text);
     }
+    public void clean() {
+        driver.findElement(By.xpath(String.format(input, label))).clear();
+    }
 
     public void writeInArea(String text) {
         driver.findElement(By.xpath(String.format(inputArea, label))).sendKeys(text);

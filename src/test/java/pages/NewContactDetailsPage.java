@@ -56,4 +56,5 @@ public class NewContactDetailsPage extends BasePage {
         validateStreet("Mailing Address", contact.getMailing_street());
 
     }
+
 }

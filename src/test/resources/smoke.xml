@@ -11,6 +11,7 @@
             <class name="tests.AccountCreateTest" />
             <class name="tests.ContactCreateTest" />
             <class name="tests.LeadCreateTest" />
+            <class name="tests.LeadStatusCompleteTest" />
         </classes>
     </test> <!-- Test -->
 </suite>
