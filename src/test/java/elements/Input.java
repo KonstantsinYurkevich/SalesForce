@@ -1,8 +1,10 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class Input {
     WebDriver driver;
     String label;
@@ -25,15 +27,30 @@ public class Input {
         this.label = label;
     }
 
+
     public void writeIn(String text) {
-        driver.findElement(By.xpath(String.format(input, label))).sendKeys(text);
+        try {
+            driver.findElement(By.xpath(String.format(input, label))).sendKeys(text);
+        } catch (Exception exception) {
+            log.fatal(exception.getMessage());
+        }
     }
 
     public void clean() {
-        driver.findElement(By.xpath(String.format(input, label))).clear();
+
+        try {
+            driver.findElement(By.xpath(String.format(input, label))).clear();
+        } catch (Exception exception) {
+            log.fatal(exception);
+        }
     }
 
     public void writeInArea(String text) {
-        driver.findElement(By.xpath(String.format(inputArea, label))).sendKeys(text);
+        try {
+            driver.findElement(By.xpath(String.format(inputArea, label))).sendKeys(text);
+        } catch (Exception exception) {
+            log.fatal(exception);
+        }
     }
+
 }

@@ -1,6 +1,7 @@
 package tests;
 
 import models.Lead;
+import models.LeadFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
@@ -17,10 +18,7 @@ public class LeadCreateTest extends BaseTest {
                 .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();
         assertTrue(isOpened, "Home page doesn't open");
-        Lead lead = new Lead("Masha", "Lola", "Popopop", "okokok", "Title",
-                "blabla@gmail.com", "123321", "123321", "tut.by", "Onliner", "12",
-                "Street", "City", "Province", "123321", "None", "Mr.",
-                "Working", "Hot", "Banking", "Advertisement");
+        Lead lead = LeadFactory.get();
         leadsPage
                 .open()
                 .clickNewButton()

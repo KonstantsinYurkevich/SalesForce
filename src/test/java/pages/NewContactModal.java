@@ -4,10 +4,12 @@ import elements.DropDown;
 import elements.Input;
 import elements.Search;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Contact;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class NewContactModal extends BasePage {
     public static final By MODAL_TITLE = By.xpath("//h2[text()='New Account']");
 
@@ -25,6 +27,7 @@ public class NewContactModal extends BasePage {
 
     @Step("Fill in form of new contact according test data ")
     public NewContactDetailsPage create(Contact contact) {
+        log.info("Fill in form of new contact on new contact page");
         new Input(driver, "First Name", "Contact").writeIn(contact.getFirst_name());
         new Input(driver, "Middle Name", "Contact").writeIn(contact.getMiddle_name());
         new Input(driver, "Last Name", "Contact").writeIn(contact.getLast_name());

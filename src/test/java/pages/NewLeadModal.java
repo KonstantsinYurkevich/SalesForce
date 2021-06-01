@@ -3,10 +3,12 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Lead;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+@Log4j2
 public class NewLeadModal extends BasePage {
     public static final By MODAL_TITLE = By.xpath("//h2[text()='New Lead']");
 
@@ -24,6 +26,7 @@ public class NewLeadModal extends BasePage {
 
     @Step("Fill in form of new lead according test data ")
     public NewLeadDetailsPage create(Lead lead) {
+        log.info("Fill in form of new lead on new lead page");
         new DropDown(driver, "Lead Status", "Lead").select(lead.getDropdown_lead_status());
         new DropDown(driver, "Salutation", "Lead").select(lead.getDropdown_salutation());
         new Input(driver, "First Name", "Lead").writeIn(lead.getFirst_name());

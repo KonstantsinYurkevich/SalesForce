@@ -3,6 +3,7 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Lead;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +12,7 @@ import org.testng.Assert;
 
 import java.util.concurrent.TimeUnit;
 
-
+@Log4j2
 public class NewLeadDetailsPage extends BasePage {
     public static final By DETAILS_TAB = By.xpath("//div[contains(@class,'active')]//*[@id='detailTab__item']");
     public static final By ACTIVE_DETAILS_TAB = By.xpath("//a[contains(text(),'Details')]//ancestor::li[contains" +
@@ -39,6 +40,7 @@ public class NewLeadDetailsPage extends BasePage {
 
     @Step("Open details tab on lead page")
     public NewLeadDetailsPage openDetailsTab() {
+        log.info("Opening details tab on lead page");
         wait = new WebDriverWait(driver, 20);
         driver.findElement(DETAILS_TAB).click();
         return this;
@@ -56,6 +58,7 @@ public class NewLeadDetailsPage extends BasePage {
 
     @Step("Validating lead from data and lead from site")
     public void validateLead(Lead lead) {
+        log.info("Validating lead");
         validateInput("Lead Status", lead.getDropdown_lead_status());
         validateName("Name", lead.getDropdown_salutation() + " " + lead.getFirst_name() + " " +
                 lead.getMiddle_name() + " " + lead.getLast_name() + " " + lead.getSuffix());
@@ -76,12 +79,14 @@ public class NewLeadDetailsPage extends BasePage {
 
     }
 
+    @Step("Mark lead status - complete")
     public void editLeadToStatusComplete(String LeadStatus) throws InterruptedException {
+        log.info("making lead status - complete");
         switch (LeadStatus) {
             case ("Unqualified"):
 
                 edit();
-                new DropDown(driver, "Lead Status", "Account").select("External Referral");
+                new DropDown(driver, "Lead Source", "Account").select("External Referral");
                 save();
                 complete();
                 TimeUnit.SECONDS.sleep(4);

@@ -1,16 +1,17 @@
 package elements;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+@Log4j2
 public class DropDown {
     WebDriver driver;
     String label;
     String locator;
     String optionLocator;
     WebDriverWait wait;
-
 
     public DropDown(WebDriver driver, String label, String page) {
         if (page.equals("Account")) {
@@ -26,8 +27,13 @@ public class DropDown {
     }
 
     public void select(String option) {
-        driver.findElement(By.xpath(String.format(locator, label))).click();
-        wait = new WebDriverWait(driver, 4);
-        driver.findElement(By.xpath(String.format(optionLocator, option))).click();
+        try {
+            driver.findElement(By.xpath(String.format(locator, label))).click();
+            wait = new WebDriverWait(driver, 4);
+            driver.findElement(By.xpath(String.format(optionLocator, option))).click();
+        } catch (Exception exception) {
+            log.fatal(exception.getStackTrace());
+        }
+
     }
 }

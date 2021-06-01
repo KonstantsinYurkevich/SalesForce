@@ -1,6 +1,7 @@
 package tests;
 
 import models.Account;
+import models.AccountFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
@@ -18,10 +19,7 @@ public class AccountCreateTest extends BaseTest {
                 .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();
         assertTrue(isOpened, "Home page doesn't open");
-        Account account = new Account("Test", "+88005553535", "Press", "Allah-Akbar.cc",
-                "Here is description", "Media", "12", "Moscow", "Arbat",
-                "Vnukovo", "1233212", "Russia", "Zapadnaya",
-                "Minsk", "Zapad", "123211", "Belarus");
+        Account account = AccountFactory.get();
 
         accountsPage
                 .open()

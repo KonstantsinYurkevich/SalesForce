@@ -4,11 +4,12 @@ package pages;
 import elements.DropDown;
 import elements.Input;
 import io.qameta.allure.Step;
+import lombok.extern.log4j.Log4j2;
 import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-
+@Log4j2
 public class NewAccountModal extends BasePage {
     public static final By MODAL_TITLE = By.xpath("//h2[text()='New Account']");
 
@@ -25,6 +26,7 @@ public class NewAccountModal extends BasePage {
 
     @Step("Fill in form of new account according test data ")
     public NewAccountDetailsPage create(Account account) {
+        log.info("Fill in form of new account on new account page");
         new Input(driver, "Account Name", "Account").writeIn(account.getAccountName());
         new DropDown(driver, "Type", "Account").select(account.getDropdown_type());
         new Input(driver, "Website", "Account").writeIn(account.getWebsite());
@@ -32,7 +34,7 @@ public class NewAccountModal extends BasePage {
         new Input(driver, "Description", "Account").writeInArea(account.getDescription());
         new DropDown(driver, "Industry", "Account").select(account.getDropdown_industry());
         new Input(driver, "Employees", "Account").writeIn(account.getEmployees());
-        new Input(driver, "Billing Street", "Account").writeInArea(account.getBilling_Street());
+        new Input(driver, "Billing Street", "Account").writeInArea(account.getBilling_street());
         new Input(driver, "Billing City", "Account").writeIn(account.getBilling_city());
         new Input(driver, "Billing State/Province", "Account").writeIn(account.getBilling_state_province());
         new Input(driver, "Billing Zip/Postal Code", "Account").writeIn(account.getBilling_zip_postal_code());
