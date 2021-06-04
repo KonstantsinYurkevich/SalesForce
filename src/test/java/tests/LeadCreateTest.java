@@ -1,16 +1,15 @@
 package tests;
 
-import models.Account;
-import models.AccountFactory;
+import models.Lead;
+import models.LeadFactory;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 
 import static org.testng.Assert.assertTrue;
 
-
-public class AccountCreateTest extends BaseTest {
-    @Test(description = "Creating account and it's validation")
-    public void AccountShouldBeCreate() {
+public class LeadCreateTest extends BaseTest {
+    @Test(description = "Create new lead and validate it")
+    public void LeadShouldBeCreated() {
         boolean isOpened = logInPage
                 .open()
                 .IsPageOpened();
@@ -19,14 +18,13 @@ public class AccountCreateTest extends BaseTest {
                 .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();
         assertTrue(isOpened, "Home page doesn't open");
-        Account account = AccountFactory.get();
-
-        accountsPage
+        Lead lead = LeadFactory.get();
+        leadsPage
                 .open()
                 .clickNewButton()
-                .create(account)
+                .create(lead)
                 .openDetailsTab()
-                .validateAccount(account);
+                .validateLead(lead);
 
 
     }

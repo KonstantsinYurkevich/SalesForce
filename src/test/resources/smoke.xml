@@ -4,10 +4,14 @@
     <listeners>
         <listener class-name="tests.base.AnnotationTransformer"/>
     </listeners>
-    <test name="test 1">
+    <test name="Test package 1">
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LogInTest" />
+            <class name="tests.AccountCreateTest" />
+            <class name="tests.ContactCreateTest" />
+            <class name="tests.LeadCreateTest" />
+            <class name="tests.LeadStatusCompleteTest" />
         </classes>
     </test> <!-- Test -->
 </suite>

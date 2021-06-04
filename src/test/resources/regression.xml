@@ -7,12 +7,13 @@
     <test name="test 1">
         <classes>
             <class name="tests.LogInTest" />
+            <class name="tests.AccountCreateTest" />
         </classes>
     </test> <!-- Test -->
     <test name="test 2">
         <classes>
-            <class name="tests.AccountCreateTest" />
             <class name="tests.ContactCreateTest" />
+            <class name="tests.LeadCreateTest" />
         </classes>
     </test> <!-- Test -->
 </suite>
