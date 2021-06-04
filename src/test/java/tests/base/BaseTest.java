@@ -40,6 +40,7 @@ public abstract class BaseTest {
             WebDriverManager.chromedriver().setup();
             options.addArguments("--no-sandbox");
             options.addArguments("--start-maximized");
+            options.addArguments("--headless");
             driver = new ChromeDriver(options);
         } else if (browser.equals("firefox")) {
             WebDriverManager.firefoxdriver().setup();

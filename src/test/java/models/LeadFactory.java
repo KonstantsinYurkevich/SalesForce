@@ -25,7 +25,7 @@ public class LeadFactory {
                 .dropdown_industry("Agriculture")
                 .dropdown_lead_source("Advertisement")
                 .dropdown_rating("Hot")
-                .dropdown_salutation("Dr.")
+                .dropdown_salutation("Mr.")
                 .dropdown_lead_status("Unqualified")
                 .build();
     }

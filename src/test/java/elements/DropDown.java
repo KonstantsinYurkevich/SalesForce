@@ -18,8 +18,8 @@ public class DropDown {
             locator = "//*[contains(@class,'modal-body')]//span[text()='%s']/ancestor::div[contains(@class, 'uiInput')]//a";
             optionLocator = "//*[contains(@class,'uiMenuList') and contains(@class,'visible')]//a[@title='%s']";
         } else {
-            locator = "//*[contains(@class,'modal-body')]//label[text()='%s']/ancestor::lightning-combobox" +
-                    "[contains(@class,'slds-form-element')]//lightning-base-combobox//input";
+            locator = " //*[contains(@class,'modal-body')]//label[text()='%s']/ancestor::lightning-combobox" +
+                    "[contains(@class,'slds-form-element')]//div[contains(@class,'slds-form-element__control')]";
             optionLocator = "//*[contains(@class,'modal-body')]//*[contains(@class,'slds-form-element')]//*[@title='%s']";
         }
         this.driver = driver;
