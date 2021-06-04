@@ -20,8 +20,9 @@ public class Search {
         } else {
             locator = "//*[contains(@class,'modal-body')]//label[text()='Account Name']/ancestor::lightning-grouped-" +
                     "combobox[contains(@class,'slds-form-element')]//lightning-base-combobox//input";
-            optionLocator = "//*[contains(@class,'modal-body')]//div[contains(@class,'slds-dropdown')]//lightning-base-combobox-item//span[contains(@title,'Test')]";
+            optionLocator = "//*[contains(@class,'modal-body')]//label[text()='Account Name']/ancestor::lightning-grouped-combobox[contains(@class,'slds-form-element')]//li//lightning-base-combobox-formatted-text[contains(@title,'%s')]/ancestor::lightning-base-combobox-item";
         }
+        //*[contains(@class,'modal-body')]//div[contains(@class,'slds-dropdown')]//lightning-base-combobox-item//span[contains(@title,'%s')]
         this.driver = driver;
         this.label = label;
     }
@@ -29,6 +30,8 @@ public class Search {
     public void option(String option) {
         try {
             driver.findElement(By.xpath(String.format(locator, label))).click();
+            wait = new WebDriverWait(driver, 2);
+            driver.findElement(By.xpath(String.format(locator, label))).sendKeys(option);
             wait = new WebDriverWait(driver, 2);
             driver.findElement(By.xpath(String.format(optionLocator, option))).click();
         } catch (Exception exception) {

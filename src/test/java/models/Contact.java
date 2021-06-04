@@ -10,7 +10,6 @@ public class Contact {
     String middle_name;
     String last_name;
     String suffix;
-    String accountName;
     String title;
     String email;
     String phone;

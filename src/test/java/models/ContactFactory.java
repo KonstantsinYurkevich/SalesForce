@@ -10,7 +10,6 @@ public class ContactFactory {
                 .middle_name(faker.funnyName().name())
                 .last_name(faker.name().lastName())
                 .suffix(faker.name().suffix())
-                .accountName("Test")
                 .title(faker.harryPotter().spell())
                 .email(faker.internet().emailAddress())
                 .phone(faker.phoneNumber().phoneNumber())

@@ -26,14 +26,14 @@ public class NewContactModal extends BasePage {
     }
 
     @Step("Fill in form of new contact according test data ")
-    public NewContactDetailsPage create(Contact contact) {
+    public NewContactDetailsPage create(Contact contact, String account_name) {
         log.info("Fill in form of new contact on new contact page");
         new Input(driver, "First Name", "Contact").writeIn(contact.getFirst_name());
         new Input(driver, "Middle Name", "Contact").writeIn(contact.getMiddle_name());
         new Input(driver, "Last Name", "Contact").writeIn(contact.getLast_name());
         new Input(driver, "Suffix", "Contact").writeIn(contact.getSuffix());
         new DropDown(driver, "Salutation", "Contact").select(contact.getDropdown_salutation());
-        new Search(driver, "Account Name", "Contact").option(contact.getAccountName());
+        new Search(driver, "Account Name", "Contact").option(account_name);
         new Input(driver, "Title", "Contact").writeIn(contact.getTitle());
         new Input(driver, "Email", "Contact").writeIn(contact.getEmail());
         new Input(driver, "Phone", "Contact").writeIn(contact.getPhone());

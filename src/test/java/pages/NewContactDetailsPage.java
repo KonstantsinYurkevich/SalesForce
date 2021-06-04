@@ -42,11 +42,11 @@ public class NewContactDetailsPage extends BasePage {
     }
 
     @Step("Validating contact from data and contact from site")
-    public void validateContact(Contact contact) {
+    public void validateContact(Contact contact,String account_name) {
         log.info("Validating contact");
         validateName("Name", contact.getDropdown_salutation() + " " + contact.getFirst_name() +
                 " " + contact.getMiddle_name() + " " + contact.getLast_name() + " " + contact.getSuffix());
-        validateAccountName("Account Name", contact.getAccountName());
+        validateAccountName("Account Name", account_name);
         validateInput("Title", contact.getTitle());
         validateEmail("Email", contact.getEmail());
         validatePhone("Phone", contact.getPhone());

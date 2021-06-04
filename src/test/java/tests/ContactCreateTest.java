@@ -1,5 +1,7 @@
 package tests;
 
+import models.Account;
+import models.AccountFactory;
 import models.Contact;
 import models.ContactFactory;
 import org.testng.annotations.Test;
@@ -18,13 +20,20 @@ public class ContactCreateTest extends BaseTest {
                 .logIn(LOGIN, PASSWORD)
                 .IsPageOpened();
         assertTrue(isOpened, "Home page doesn't open");
+        Account account = AccountFactory.get();
+        accountsPage
+                .open()
+                .clickNewButton()
+                .create(account)
+                .openDetailsTab()
+                .validateAccount(account);
         Contact contact = ContactFactory.get();
         contactsPage
                 .open()
                 .clickNewButton()
-                .create(contact)
+                .create(contact, account.getAccountName())
                 .openDetailsTab()
-                .validateContact(contact);
+                .validateContact(contact,account.getAccountName());
 
 
     }
