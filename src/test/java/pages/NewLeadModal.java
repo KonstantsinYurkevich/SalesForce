@@ -24,7 +24,7 @@ public class NewLeadModal extends BasePage {
 
     }
 
-    @Step("Fill in form of new lead according test data ")
+    @Step("Fill in form of new lead according test data  ")
     public NewLeadDetailsPage create(Lead lead) {
         log.info("Fill in form of new lead on new lead page");
         new DropDown(driver, "Lead Status", "Lead").select(lead.getDropdown_lead_status());
